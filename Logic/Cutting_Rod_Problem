@@ -1,0 +1,33 @@
+Maximise number of cuts in a rod if it can be cut only in given 3 sizes
+
+Input: N = 17, A = 10, B = 11, C = 3 
+Output: 3 
+Explanation: 
+The maximum cut can be obtain after making 2 cut of length 3 and one cut of length 11. 
+Input: N = 10, A = 9, B = 7, C = 11 
+Output: -1 
+Explanation: 
+It is impossible to make any cut so output will be -1. 
+
+The first thing to keep in mind is -> either the cut will be possible or the cut will not be possible
+Algorithm :
+make the cut and see if you are getting a positive, negative or 0 value
+-> If you are getting a negative value that means the cut is not possible further.
+-> If you get a positive value that means cut is possible then try dividing it further
+-> If you get a 0 value that means no further cuts are possible but you got the cut.
+
+int maxCuts(int N,int a,int b, int c){
+    if(N==0)
+        return 0;
+    if(N<0){
+        return -1;
+    }
+    int res=max(maxCuts((N-a,a,b,c),
+                maxCuts(N-b,a,b,c),
+                maxCuts(N-c,a,b,c));
+        if(res == -1)
+            return -1;
+        else
+            res=res+1;
+}
+

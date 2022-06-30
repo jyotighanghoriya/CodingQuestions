@@ -1,0 +1,36 @@
+Check whether a particular string is a palindrome or not.
+
+Recursion:
+When we say a string is a palindrome that means if you read the string from beginning or end. It will be same.
+
+-> Lets think of tackling it through divide and conquer.
+-> For solving divide and conquer we can solve it either using recursion or iteration.
+-> lets see how we can solve it through recursion.
+
+Logic:
+-> check for 2 things:
+    1. check whether the end points character are similar
+    2. Check if string leaving those two characters is similar or not.
+
+    Note:
+    Base Condition:
+        -> if the string length becomes 0 or 1 during division then that means that string is a palindrome. Because if string is not palindrome it will never become 0 or 1 coz there might be distinct characters when end point characters will be compared.
+
+Pseudo code:
+bool isPalindrome(string s,int start,int end){
+    if(start>=end){ // Base case
+        return True;
+    }
+    //If characters are similar then I would want to divide string further. If characters are not similar I would want to return -1 or False.
+    return (s[start]==s[end])&&isPalindrome(s,start+1,end-1);
+}
+
+
+Variation:
+Sum of Digit is Pallindrome or not 
+Given a number N.Find if the digit sum(or sum of digits) of N is a Palindrome number or not.
+Note:A Palindrome number is a number which stays the same when reversed.Example- 121,131,7 etc.
+
+Algo:
+1> Calculate digit sum of no. = O(n)
+2> Check the obtained no. is a palindrome.

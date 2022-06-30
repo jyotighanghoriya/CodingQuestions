@@ -1,0 +1,24 @@
+Recursive program to generate power set
+Given a set represented as a string, write a recursive code to print all subsets of it. The subsets can be printed in any order. 
+
+Examples:  
+
+Input :  set = "abc"
+Output : "", "a", "b", "c", "ab", "ac", "bc", "abc"
+
+Input : set = "abcd"
+Output : "" "a" "ab" "abc" "abcd" "abd" "ac" "acd"
+         "ad" "b" "bc" "bcd" "bd" "c" "cd" "d" 
+
+
+Logic: 
+Either you include the character or you do not include the character
+
+void subsetsGeneration(string s,string curr,int i){
+    if(i==s.length()){
+        cout<<curr;
+        return ;
+    }
+    subsetsGeneration(s,curr,i+1);
+    subsetsGeneration(s,curr+s[i],i+1);
+}
