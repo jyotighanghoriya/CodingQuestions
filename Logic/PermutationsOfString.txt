@@ -1,0 +1,14 @@
+Given a string our job is to find all the permutations of a string.
+i/p: abc
+o/p: abc,acb,bac,bca,cba,cab
+
+To find permutations of all strings .. all you have to do is fix the characters consecutively and swap the remaining characters.
+  if(index==str.length()-1){// check if the character one less than the required character are fixed.
+        cout<<str<<endl;
+        return;
+    }
+    for(int i=index;i<n;i++){
+        swap(str[i],str[index]); // swap the character with the last character
+        permutation(str,n,index+1); // call the permuatation of character.
+        swap(str[i],str[index]);
+    }

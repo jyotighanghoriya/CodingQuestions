@@ -1,0 +1,25 @@
+Problem: Given a set of non-negative integers, and a value sum, determine if there is a subset of the given set with sum equal to given sum. 
+first thing we should know is how to generate subset.
+We already read in generating subset of string is you either include the element or you don't include the element. 
+
+Input: set[] = {3, 34, 4, 12, 5, 2}, sum = 9
+Output: True  
+There is a subset (4, 5) with sum 9.
+
+Input: set[] = {10,20,15}
+Output: True
+There is a subset (10,15) with the sum 25
+
+
+Logic:
+    You make 2 recursive calls. first by including the element and second by not including the element.
+    If after including the element reduce the sum and check if the sum is becoming 0 if the sum is becoming 0 that means that on including that element in
+    the set you are able to reach that sum.
+    if the sum is 0 that means there is empty subset with which we can achieve sum as 0.
+
+int countSubsets(int arr[],int n,int sum){
+    if(n==0){ // if n becomes 0 then definitely we are at the last level. 
+        return (sum==0)? 1:0;
+    }
+    return countSubsets(arr,n-1,sum)+countSubsets(arr,n-1,sum-arr[n-1])
+}

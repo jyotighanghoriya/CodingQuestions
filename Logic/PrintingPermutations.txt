@@ -1,0 +1,61 @@
+A permutation also called an “arrangement number” or “order,” is a rearrangement of the elements of an ordered list S into a one-to-one correspondence with S itself. 
+A string of length n has n! permutation.
+Below are the permutations of string ABC. 
+ABC ACB BAC BCA CBA CAB
+
+        A _ _ = 2! permutations will be there. ABC,ACB
+
+ABC->   B _ _ = 2! permutations will be there. BAC, BCA
+
+        C _ _ = 2! permutations will be there. CAB, CBA
+
+
+        recursion:
+        Here how recursion is working is you get a string. You fix a certain character of the string and the character which are not fixed you swapped it.
+
+
+
+
+                    i=1         i=2         i=3
+                    A _ _ _ ->  AB _ _ ->   ABC _ -> ABCD
+                                            ABD _ 
+
+                                AC _ _ ->   ACB _
+                                            ACD _
+
+                                AD _ _ ->   A   
+
+                    B _ _ _ ->  BA _ _
+
+                                BC _ _
+
+                                BD _ _
+
+        i=0         C _ _ _ ->  CA _ _ 
+        ABCD = 
+                                CB _ _
+
+                                CD _ _
+
+                    D _ _ _ ->  DA _ _
+
+                                DB _ _
+
+                                DC _ _
+
+
+
+        Pseudo code:
+        Base case :
+        It would become equal when j becomes equal to the length-1 of string.
+
+        void permute(string s,int i=0){ // s="AB 
+            if(i==s.length()-1)
+                cout<<s;
+                return; 
+            for( int j=i;j<s.length();j++){ //-> BA 
+                swap(s[i],s[j]);
+                permute(s,i+1);
+                swap(s[j],s[i]);
+            }
+        }
